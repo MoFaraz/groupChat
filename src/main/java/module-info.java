@@ -10,6 +10,7 @@ module thirdproject.groupchat {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires java.mail;
 
     opens thirdproject.groupchat to javafx.fxml;
     exports thirdproject.groupchat;

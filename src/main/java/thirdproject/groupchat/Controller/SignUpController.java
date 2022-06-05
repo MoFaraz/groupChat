@@ -19,8 +19,8 @@ public class SignUpController {
     private Stage signUpStage;
     private int verificationCode;
     private String code;
-    @FXML
-    private AnchorPane signUpPane;
+
+    @FXML private AnchorPane signUpPane;
     @FXML private TextField emailFLD;
     @FXML private Label emailLBL;
     @FXML private Label passwordLBL;
@@ -33,19 +33,19 @@ public class SignUpController {
 
 
     @FXML void signUpAction(ActionEvent event) throws IOException {
-        if (Pattern.matches("^(.+)@(.+)$", emailFLD.getText()) &&
-                Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", passwordTXT.getText()) &&
-                Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", conPassFLD.getText()) &&
-                Pattern.matches("^[a-zA-Z0-9._-]{3,}$", userTXT.getText()) &&
+        if (RegEx.emailRegEx(emailFLD.getText()) &&
+                RegEx.passwordRegEx(passwordTXT.getText()) &&
+                RegEx.passwordRegEx(conPassFLD.getText()) &&
+                RegEx.usernameRegEx(userTXT.getText()) &&
                 passwordTXT.getText().equals(conPassFLD.getText())) {
             emailFLD.setStyle("-fx-border-color: green");
             userTXT.setStyle("-fx-border-color: green");
             passwordTXT.setStyle("-fx-border-color: green");
             conPassFLD.setStyle("-fx-border-color: green");
             DBUtils.signUp(event,userTXT.getText(),passwordTXT.getText(),emailFLD.getText());
-            code = SendEMail.send(emailFLD.getText());
+            code = SendEmail.send(emailFLD.getText());
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("View/VerificationPage.fxml"));
+            loader.setLocation(Main.class.getResource("View/VerificationPage.fxml"));
             try {
                 loader.load();
             } catch (IOException e) {
