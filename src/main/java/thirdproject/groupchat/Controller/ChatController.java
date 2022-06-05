@@ -191,7 +191,7 @@ public class ChatController implements Initializable {
                                 Text text = new Text(messageToSend);
                                 TextFlow textFlow = new TextFlow(text);
 
-                                DBUtils.addMessage(messageToSend,sender, GetDate.getCurrentDate(), GetDate.getCurrentTime());
+                                DBUtils.addMessage(messageToSend,sender, GetDateController.getCurrentDate(), GetDateController.getCurrentTime());
 
                                 textFlow.setStyle("-fx-color : white; -fx-background-color: #46474A;" +
                                         "-fx-background-radius: 20px;");
@@ -200,7 +200,12 @@ public class ChatController implements Initializable {
 
                                 message_hBox.getChildren().add(textFlow);
                                 messageBox.getChildren().add(message_hBox);
-
+                                rightVBOX.setOnKeyPressed(event2 -> {
+                                    var cancelMessageController = new CancelMessageController();
+                                    cancelMessageController.setMessageBox(messageBox);
+                                    cancelMessageController.setEvent(event2);
+                                    cancelMessageController.run();
+                                });
                                 sendFLD.clear();
                             }
                         }
