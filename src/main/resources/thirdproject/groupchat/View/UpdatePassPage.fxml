@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thirdproject.groupchat.Controller.UpdatePassController">
+    <children>
+        <VBox layoutX="168.0" layoutY="112.0" prefHeight="107.0" prefWidth="264.0" spacing="6.0">
+            <children>
+                <Label text="new password" />
+                <PasswordField fx:id="newPassFLD" />
+                <Label text="confirm password" />
+                <PasswordField fx:id="conPassFLD" />
+            </children>
+        </VBox>
+        <Button fx:id="confirmBTN" layoutX="316.0" layoutY="233.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="116.0" text="Confirm" />
+        <Button fx:id="backBTN" layoutX="168.0" layoutY="233.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="116.0" text="Back" />
+    </children>
+</AnchorPane>
