@@ -42,7 +42,7 @@ public class VerificationController implements Initializable {
                 String code = txtFLD1.getText() + txtFLD2.getText() + txtFLD3.getText() + txtFLD4.getText();
                 if (verificationCode.equals(code)) {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(Main.class.getResource("View/Messanger.fxml"));
+                    loader.setLocation(Main.class.getResource("View/ChatPage.fxml"));
                     try {
                         loader.load();
                     } catch (IOException e) {
@@ -51,8 +51,8 @@ public class VerificationController implements Initializable {
 
                     getVerStage().setScene(new Scene(loader.getRoot()));
                     getVerStage().setResizable(false);
-                    ChatPageController chatPageController = loader.getController();
-                    chatPageController.initFunction4(verStage);
+                    ChatController chatController = loader.getController();
+                    chatController.initFunction4(verStage);
                 }
 
             }
