@@ -14,4 +14,7 @@ module thirdproject.groupchat {
 
     opens thirdproject.groupchat to javafx.fxml;
     exports thirdproject.groupchat;
+
+    opens thirdproject.groupchat.Controller to javafx.fxml;
+    exports thirdproject.groupchat.Controller;
 }
