@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.image.Image?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.text.Font?>
+        <?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thirdproject.groupchat.Controller.ForgetPassVerificationController">
+    <children>
+        <ImageView fitHeight="130.0" fitWidth="150.0" layoutX="228.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/checked.png" />
+            </image>
+        </ImageView>
+        <VBox layoutX="200.0" layoutY="272.0" prefHeight="106.0" prefWidth="201.0" spacing="9.0">
+            <children>
+                <Button fx:id="veriBTN" mnemonicParsing="false" prefHeight="41.0" prefWidth="201.0" style="-fx-background-radius: 16;" text="Verification" />
+                <Button fx:id="resendBTN" mnemonicParsing="false" prefHeight="41.0" prefWidth="201.0" style="-fx-background-radius: 16;" text="Resend Code" />
+            </children>
+        </VBox>
+        <HBox layoutX="185.0" layoutY="217.0" prefHeight="45.0" prefWidth="230.0" spacing="15.0">
+            <children>
+                <TextField fx:id="txtFLD1" alignment="CENTER" prefHeight="44.0" prefWidth="46.0" style="-fx-background-radius: 8;" />
+                <TextField fx:id="txtFLD2" alignment="CENTER" prefHeight="44.0" prefWidth="46.0" style="-fx-background-radius: 8;" />
+                <TextField fx:id="txtFLD3" alignment="CENTER" prefHeight="44.0" prefWidth="46.0" style="-fx-background-radius: 8;" />
+                <TextField fx:id="txtFLD4" alignment="CENTER" prefHeight="44.0" prefWidth="46.0" style="-fx-background-radius: 8;" />
+            </children>
+        </HBox>
+        <VBox layoutX="155.0" layoutY="14.0" prefHeight="45.0" prefWidth="276.0" spacing="7.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Check The Message We Send " textAlignment="CENTER" wrappingWidth="268.4619140625">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Text>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="We Have Sent The Verification Code" textAlignment="CENTER" wrappingWidth="270.7294921875" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
