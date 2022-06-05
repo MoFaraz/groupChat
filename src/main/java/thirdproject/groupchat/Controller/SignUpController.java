@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class SignUpController {
+
     private Stage signUpStage;
-    private int verificationCode;
     private String code;
 
     @FXML private AnchorPane signUpPane;
@@ -54,7 +54,7 @@ public class SignUpController {
 
             getSignUpStage().setScene(new Scene(loader.getRoot()));
             getSignUpStage().setResizable(false);
-            VerificationControllerSignUp verificationController = loader.getController();
+            VerificationController verificationController = loader.getController();
             verificationController.initFunction3(signUpStage);
             verificationController.setVerificationCode(code);
         }
@@ -77,10 +77,6 @@ public class SignUpController {
 
     public Stage getSignUpStage() {
         return signUpStage;
-    }
-
-    public int getVerificationCode() {
-        return verificationCode;
     }
 
     public void initFunction2 (Stage signUpStage) {

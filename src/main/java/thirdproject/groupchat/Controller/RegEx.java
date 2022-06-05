@@ -15,4 +15,8 @@ public class RegEx {
     public static boolean emailRegEx (String email) {
         return Pattern.matches("^(.+)@(.+)$", email);
     }
+
+    public static boolean oneCharFLD (String Char) {
+        return Pattern.matches("\\d+", Char);
+    }
 }
