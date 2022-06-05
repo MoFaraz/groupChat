@@ -3,6 +3,7 @@ package thirdproject.groupchat.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import thirdproject.groupchat.Model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
