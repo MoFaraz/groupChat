@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
@@ -29,11 +30,11 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ChatController implements Initializable {
-    private final ArrayList<User> allUser = DBUtils.showUser();
-    private final ArrayList<MyMessage> messages = DBUtils.showMessage();
+    private ArrayList<User> allUser = DBUtils.showUser();
+    private ArrayList<MyMessage> messages = DBUtils.showMessage();
     private Stage chatStage;
     private ImageView imageView;
-
+    @FXML private BorderPane mainPane;
     @FXML private VBox rightVBOX;
     @FXML private VBox personVBOX;
     @FXML private Button logoutBTN;
@@ -42,9 +43,35 @@ public class ChatController implements Initializable {
     @FXML private Button requestBTN;
     @FXML private Button blockBTN;
 
+    /*@FXML void rightVBOXKey (KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER){
+            String messageToSend = send.getText();
+            if (!messageToSend.isEmpty()) {
+                HBox hBox = new HBox();
+                hBox.setAlignment(Pos.CENTER_RIGHT);
+                hBox.setPadding(new Insets(5, 5, 5, 10));
+
+                Text text = new Text(messageToSend);
+                TextFlow textFlow = new TextFlow(text);
+
+                DBUtils.addMessage(messageToSend,sender, GetDate.getCurrentDate());
+
+                textFlow.setStyle("-fx-color : rgb(239,242,255); -fx-background-color: rgb(15 , 125 ,242);" +
+                        "-fx-background-radius: 20px;");
+
+                textFlow.setPadding(new Insets(5, 10, 5, 10));
+                text.setFill(Color.color(0.934, 0.945, 0.996));
+
+                hBox.getChildren().add(textFlow);
+                vbox_message.getChildren().add(hBox);
+
+                tf_message.clear();
+            }
+        }
+    }*/
     @FXML void friendsBTNAction(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("View/Users.fxml"));
+       /* FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("View/Users.fxml"));
         try {
             loader.load();
         } catch (IOException e) {
@@ -53,12 +80,12 @@ public class ChatController implements Initializable {
 
         getChatStage().setScene(new Scene(loader.getRoot()));
         getChatStage().setResizable(false);
-        AddRemoveFriendsController controller = loader.getController();
-        controller.initFunction5(chatStage);
+        AddFriends controller = loader.getController();
+        controller.initFunction5(chatStage);*/
     }
 
     @FXML void blockBTNAction(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
+        /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/Block.fxml"));
         try {
             loader.load();
@@ -67,13 +94,13 @@ public class ChatController implements Initializable {
         }
         getChatStage().setScene(new Scene(loader.getRoot()));
         getChatStage().setResizable(false);
-        AddRemoveBlockController controller = loader.getController();
-        controller.initFunction9(chatStage);
+        BlockController controller = loader.getController();
+        controller.initFunction9(chatStage);*/
 
     }
 
     @FXML void groupBTNAction(ActionEvent event) {
-       /* FXMLLoader loader = new FXMLLoader();
+        /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/Company.fxml"));
         try {
             loader.load();
@@ -87,6 +114,9 @@ public class ChatController implements Initializable {
     }
 
     @FXML void logoutAction(ActionEvent event) {
+        getChatStage().close();
+        DBUtils.logout();
+        Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("View/LoginPage.fxml"));
         try {
@@ -94,11 +124,11 @@ public class ChatController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        getChatStage().setScene(loader.getRoot());
-        getChatStage().setResizable(false);
-        LoginController loginController = loader.getController();
-        loginController.initFunction(chatStage);
-        DBUtils.logout();
+        LoginController controller = loader.getController();
+        controller.initFunction(stage);
+
+        stage.setScene(new Scene(loader.getRoot()));
+        stage.show();
     }
 
     @FXML void requestBTNAction(ActionEvent event) {
@@ -128,7 +158,7 @@ public class ChatController implements Initializable {
                 Button userBTN = new Button(user.getUsername());
                 userBTN.setStyle("-fx-background-color:  #636566;");
                 HBox.setMargin(userBTN , new Insets(5 , 0 , 0 , 6));
-                File file = new File("src/main/resources/image/person.png");
+                File file = new File("src/main/resources/thirdproject/groupchat/image/person.png");
                 Image image = new Image(file.toURI().toString());
                 imageView.setImage(image);
                 imageView.setFitWidth(38);
@@ -154,7 +184,7 @@ public class ChatController implements Initializable {
                     rightVBOX = new VBox();
                     rightVBOX.setPrefWidth(504);
                     rightVBOX.setPrefHeight(472);
-
+                    mainPane.setRight(rightVBOX);
                     Text usernameTXT = new Text(user.getUsername());
                     Text userLastSeen = new Text("Last Seen Recently");
                     imageView.setImage(image);
@@ -200,12 +230,7 @@ public class ChatController implements Initializable {
 
                                 message_hBox.getChildren().add(textFlow);
                                 messageBox.getChildren().add(message_hBox);
-                                rightVBOX.setOnKeyPressed(event2 -> {
-                                    var cancelMessageController = new CancelMessageController();
-                                    cancelMessageController.setMessageBox(messageBox);
-                                    cancelMessageController.setEvent(event2);
-                                    cancelMessageController.run();
-                                });
+
                                 sendFLD.clear();
                             }
                         }

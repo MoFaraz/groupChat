@@ -93,8 +93,7 @@ public class DBUtils {
             } else {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
-                    retrievedPassword = PasswordToHash.toHash(retrievedPassword);
-                    if (retrievedPassword.equals(password)) {
+                    if (retrievedPassword.equals(PasswordToHash.toHash(password))) {
                         PreparedStatement update = connection.prepareStatement("UPDATE data SET status = ? WHERE username = ?");
                         update.setInt(1, 1);
                         update.setString(2, username);
