@@ -50,7 +50,7 @@ public class LoginController {
 
         getLoginPage().setScene(new Scene(loader.getRoot()));
         getLoginPage().setResizable(false);
-        ChatPageController controller = loader.getController();
+        ChatController controller = loader.getController();
         controller.initFunction4(loginPage);
     }
 
