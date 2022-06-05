@@ -53,7 +53,7 @@ public class ForgetPassVerificationController implements Initializable {
                     getForgetVeriStage().setResizable(false);
 
                     UpdatePassController controller = loader.getController();
-                    controller.initFunction8(forgetVeriStage);
+                    controller.initFunction20(forgetVeriStage);
                 }
             }
         });

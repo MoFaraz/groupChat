@@ -1,151 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thirdproject.groupchat.Controller.ChatController">
-    <left>
-        <HBox prefHeight="400.0" prefWidth="278.0" BorderPane.alignment="CENTER">
-            <children>
-                <VBox prefHeight="400.0" prefWidth="61.0" styleClass="dark-gray-background" stylesheets="@../CSS/style.css">
-                    <children>
-                        <Pane prefHeight="83.0" prefWidth="61.0" />
-                        <Button fx:id="friendsBTN" mnemonicParsing="false" onAction="#friendsBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
-                            <graphic>
-                                <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../image/friends.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <VBox.margin>
-                                <Insets left="7.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button fx:id="groupBTN" mnemonicParsing="false" onAction="#groupBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
-                            <graphic>
-                                <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../image/silhouette-dutilisateurs-multiples.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <VBox.margin>
-                                <Insets left="7.0" top="28.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button fx:id="requestBTN" mnemonicParsing="false" onAction="#requestBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
-                            <graphic>
-                                <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../image/request.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <VBox.margin>
-                                <Insets left="7.0" top="28.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Button fx:id="blockBTN" mnemonicParsing="false" onAction="#blockBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
-                            <graphic>
-                                <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../image/block.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <VBox.margin>
-                                <Insets left="7.0" top="28.0" />
-                            </VBox.margin>
-                        </Button>
-                        <Pane prefHeight="165.0" prefWidth="61.0" />
-                        <Button fx:id="logoutBTN" mnemonicParsing="false" onAction="#logoutAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
-                            <graphic>
-                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../image/icons8-retirement-50.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                            <VBox.margin>
-                                <Insets left="7.0" />
-                            </VBox.margin>
-                        </Button>
-                    </children>
-                </VBox>
-                <VBox fx:id="personVBOX" prefHeight="472.0" prefWidth="221.0" styleClass="gray-background" stylesheets="@../CSS/style.css">
-                    <children>
-                        <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="175.0" stylesheets="@../CSS/style.css">
-                            <VBox.margin>
-                                <Insets left="5.0" right="5.0" top="10.0" />
-                            </VBox.margin>
-                            <children>
-                                <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../image/magnifying-glass.png" />
-                                    </image>
-                                    <HBox.margin>
-                                        <Insets left="6.0" right="5.0" top="3.0" />
-                                    </HBox.margin>
-                                </ImageView>
-                                <TextField prefHeight="24.0" prefWidth="111.0" promptText="search" styleClass="transparent-background" stylesheets="@../CSS/style.css">
-                                    <HBox.margin>
-                                        <Insets top="4.0" />
-                                    </HBox.margin>
-                                </TextField>
-                            </children>
-                            <styleClass>
-                                <String fx:value="dark-gray-background" />
-                                <String fx:value="radius" />
-                            </styleClass>
-                        </HBox>
-                        <Line endX="115.0" startX="-100.0">
-                            <VBox.margin>
-                                <Insets top="8.0" />
-                            </VBox.margin>
-                        </Line>
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-    </left>
-    <right>
-        <VBox fx:id="rightVBOX" prefHeight="472.0" prefWidth="504.0" BorderPane.alignment="CENTER">
-            <children>
-                <VBox prefHeight="435.0" prefWidth="491.0" />
-                <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="491.0" stylesheets="@../CSS/style.css">
-                    <children>
-                        <TextField prefHeight="26.0" prefWidth="468.0" promptText="Type" styleClass="transparent-background" stylesheets="@../CSS/style.css">
-                            <HBox.margin>
-                                <Insets bottom="6.0" left="12.0" top="6.0" />
-                            </HBox.margin>
+<AnchorPane prefHeight="514.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="514.0" prefWidth="278.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="61.0" styleClass="dark-gray-background" stylesheets="@../CSS/style.css">
+               <children>
+                  <Pane prefHeight="83.0" prefWidth="61.0" />
+                  <Button fx:id="friendsBTN" mnemonicParsing="false" onAction="#friendsBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/friends.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="7.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="groupBTN" mnemonicParsing="false" onAction="#groupBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/silhouette-dutilisateurs-multiples.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="7.0" top="28.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="requestBTN" mnemonicParsing="false" onAction="#requestBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/request.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="7.0" top="28.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="blockBTN" mnemonicParsing="false" onAction="#blockBTNAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/block.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="7.0" top="28.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Pane prefHeight="165.0" prefWidth="61.0" />
+                  <Button fx:id="logoutBTN" mnemonicParsing="false" onAction="#logoutAction" prefHeight="24.0" prefWidth="34.0" style="-fx-background-color: #46474A;">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icons8-retirement-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="7.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="personVBOX" prefHeight="472.0" prefWidth="221.0" styleClass="gray-background" stylesheets="@../CSS/style.css">
+               <children>
+                  <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="175.0" stylesheets="@../CSS/style.css">
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/magnifying-glass.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="6.0" right="5.0" top="3.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField prefHeight="24.0" prefWidth="111.0" promptText="search" styleClass="transparent-background" stylesheets="@../CSS/style.css">
+                           <HBox.margin>
+                              <Insets top="4.0" />
+                           </HBox.margin>
                         </TextField>
-                    </children>
-                    <VBox.margin>
-                        <Insets />
-                    </VBox.margin>
-                    <styleClass>
+                     </children>
+                     <styleClass>
                         <String fx:value="dark-gray-background" />
                         <String fx:value="radius" />
-                    </styleClass>
-                </HBox>
-            </children>
-        </VBox>
-    </right>
-</BorderPane>
+                     </styleClass>
+                  </HBox>
+                  <Line endX="115.0" startX="-100.0">
+                     <VBox.margin>
+                        <Insets top="8.0" />
+                     </VBox.margin>
+                  </Line>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox fx:id="rightVBOX" layoutX="278.0" prefHeight="514.0" prefWidth="491.0">
+         <children>
+            <VBox prefHeight="477.0" prefWidth="491.0" />
+            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="491.0" stylesheets="@../CSS/style.css">
+               <children>
+                  <TextField prefHeight="26.0" prefWidth="468.0" promptText="Type" styleClass="transparent-background" stylesheets="@../CSS/style.css">
+                     <HBox.margin>
+                        <Insets bottom="6.0" left="12.0" top="6.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="dark-gray-background" />
+                  <String fx:value="radius" />
+               </styleClass>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
