@@ -35,10 +35,10 @@ public class ForgetPassVerificationController implements Initializable {
         getOneChar(txtFLD3);
         getOneChar(txtFLD4);
         veriBTN.setOnAction(event -> {
-            if (RegEx.oneCharFLD(txtFLD1.getText()) &&
-                    RegEx.oneCharFLD(txtFLD2.getText()) &&
-                    RegEx.oneCharFLD(txtFLD3.getText()) &&
-                    RegEx.oneCharFLD(txtFLD4.getText())) {
+            if (RegEx.oneCharRegEx(txtFLD1.getText()) &&
+                    RegEx.oneCharRegEx(txtFLD2.getText()) &&
+                    RegEx.oneCharRegEx(txtFLD3.getText()) &&
+                    RegEx.oneCharRegEx(txtFLD4.getText())) {
                 String code = txtFLD1.getText() + txtFLD2.getText() + txtFLD3.getText() + txtFLD4.getText();
                 if (verificationCode.equals(code)) {
                     FXMLLoader loader = new FXMLLoader();
