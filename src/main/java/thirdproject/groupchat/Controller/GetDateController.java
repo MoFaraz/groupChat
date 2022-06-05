@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class GetDate {
+public class GetDateController {
 
     public static String getCurrentDate () {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
