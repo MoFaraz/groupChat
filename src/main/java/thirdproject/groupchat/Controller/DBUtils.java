@@ -3,6 +3,7 @@ package thirdproject.groupchat.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import thirdproject.groupchat.Exception.UserNotFound;
 import thirdproject.groupchat.Model.Groups;
 import thirdproject.groupchat.Model.MyMessage;
 import thirdproject.groupchat.Model.User;
@@ -74,7 +75,7 @@ public class DBUtils {
         }
     }
 
-    public static void logInUser(ActionEvent event, String username, String password) {
+    public static boolean logInUser(ActionEvent event, String username, String password) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -98,12 +99,14 @@ public class DBUtils {
                         update.setInt(1, 1);
                         update.setString(2, username);
                         update.executeUpdate();
+                        return true;
                     }
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     public static void logout() {

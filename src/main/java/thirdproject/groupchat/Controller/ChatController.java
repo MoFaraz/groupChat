@@ -15,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -220,10 +221,11 @@ public class ChatController implements Initializable {
 
                                 Text text = new Text(messageToSend);
                                 TextFlow textFlow = new TextFlow(text);
+                                text.setFill(Color.color(0.934,0.945,0.996));
 
                                 DBUtils.addMessage(messageToSend,sender, GetDateController.getCurrentDate(), GetDateController.getCurrentTime());
 
-                                textFlow.setStyle("-fx-color : white; -fx-background-color: #46474A;" +
+                                textFlow.setStyle("-fx-color: rgb(239,242,255); -fx-background-color: #46474A;" +
                                         "-fx-background-radius: 20px;");
 
                                 textFlow.setPadding(new Insets(5, 10, 5, 10));
@@ -329,17 +331,18 @@ public class ChatController implements Initializable {
                     message.getSender().equals(reversSender)) {
                 HBox hBox = new HBox();
                 Text text = new Text(message.getContent());
+                text.setFill(Color.color(0.934,0.945,0.996));
                 TextFlow textFlow = new TextFlow(text);
                 hBox.setPadding(new Insets(5, 5, 5, 10));
 
                 if (message.getSender().equals(sender)) {
                     hBox.setAlignment(Pos.CENTER_RIGHT);
-                    textFlow.setStyle("-fx-color : white; -fx-background-color: #46474A;" +
+                    textFlow.setStyle("-fx-color: rgb(239,242,255); -fx-background-color: #46474A;" +
                             "-fx-background-radius: 20px;");
                 }
                 else if (message.getSender().equals(reversSender)) {
                     hBox.setAlignment(Pos.CENTER_LEFT);
-                    textFlow.setStyle("-fx-color : white; -fx-background-color: #636566;" +
+                    textFlow.setStyle("-fx-color: rgb(239,242,255); -fx-background-color: #636566;" +
                             "-fx-background-radius: 20px;");
                 }
 

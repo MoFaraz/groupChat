@@ -39,18 +39,20 @@ public class LoginController {
     }
 
     @FXML void loginAction(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("View/ChatPage.fxml"));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if (DBUtils.logInUser(event, userTXT.getText(), passwordTXT.getText())) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("View/ChatPage.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        getLoginPage().setScene(new Scene(loader.getRoot()));
-        getLoginPage().setResizable(false);
-        ChatController controller = loader.getController();
-        controller.initFunction4(loginPage);
+            getLoginPage().setScene(new Scene(loader.getRoot()));
+            getLoginPage().setResizable(false);
+            ChatController controller = loader.getController();
+            controller.initFunction4(loginPage);
+        }
     }
 
     @FXML void newUserAction(ActionEvent event) {
